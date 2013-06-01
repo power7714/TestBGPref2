@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.testbgpref2"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+	<uses-feature android:glEsVersion="0x00020000" />
+    <uses-feature android:name="android.software.live_wallpaper"/>
+ 
+   <application android:label="BG Pref Test"
+       android:allowBackup="true"
+      android:icon="@drawable/ic_launcher">
+ 
+      <service android:label="BG Pref Test" 
+         android:name=".Service"
+         android:permission="android.permission.BIND_WALLPAPER">
+         <intent-filter>
+            <action android:name="android.service.wallpaper.WallpaperService" />
+         </intent-filter>
+         <meta-data android:name="android.service.wallpaper"
+            android:resource="@xml/wallpaper" />
+      </service>
+      <activity android:label="Settings..." 
+          	android:name=".Settings"
+			android:exported="true"
+			android:hardwareAccelerated="false">
+	 </activity>
+   </application>
+   
+</manifest>
